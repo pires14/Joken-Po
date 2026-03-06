@@ -1,8 +1,6 @@
 function jogar(){
     if(document.getElementById('pedra').checked == false && document.getElementById('papel').checked == false && document.getElementById('tesoura').checked == false){
         alert("É obrigatório selecionar uma função")
-        
-
     }
     else{
         //Math random vai sortear algo aleatório de 0 a 2
@@ -42,5 +40,9 @@ function jogar(){
     }
 function resetar(){
     document.getElementById('pc').src="pc.png";
-    document.getElementById('placar').innerHTML="";
+    document.getElementById('placar').innerHTML="Escolha e jogue";
 }
+    if('serviceWorker' in navigator){
+        window.addEventListener('load',()=>{
+            navigator.serviceWorker.register('sw.js').then(()=>console.log('Service Worker registrado')).catch(err=> console.log('Erro',err));});
+    }
